@@ -8,12 +8,12 @@ cd lede
 #     git clone https://github.com/tuanqing/openwrt-mentohust
 #     git clone https://github.com/tuanqing/luci-app-mentohust
     git clone https://github.com/jerrykuku/luci-theme-argon -b 18.06
-#    git clone https://github.com/jerrykuku/luci-app-jd-dailybonus
+    git clone https://github.com/jerrykuku/luci-app-jd-dailybonus
 #    git clone https://github.com/jerrykuku/luci-app-ttnode
     git clone https://github.com/jerrykuku/luci-app-argon-config
     git clone https://github.com/lisaac/luci-lib-docker
     git clone https://github.com/lisaac/luci-app-dockerman
-    git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git lean/luci-app-jd-dailybonus
+#    git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git lean/luci-app-jd-dailybonus
     git clone https://github.com/iamgit66/luci-app-poweroff.git lean/luci-app-poweroff
     git clone https://github.com/iamgit66/openwrt-passwall.git lean/openwrt-passwall
 #    git clone https://github.com/tuanqing/install-program.git lean/install-program
@@ -25,12 +25,19 @@ cd lede
     svn co https://github.com/Lienol/openwrt/branches/main/package/libs/{libaudit,libsemanage,musl-fts,nettle} libs
 )
 
+
+# src-git luci https://github.com/Lienol/openwrt-luci.git;18.06
+# src-git packages https://github.com/Lienol/openwrt-packages.git;main
+# src-git routing https://git.openwrt.org/feed/routing.git
+# src-git telephony https://git.openwrt.org/feed/telephony.git
+# src-git helloworld https://github.com/fw876/helloworld.git
 cat >feeds.conf.default <<-EOF
-src-git luci https://github.com/Lienol/openwrt-luci.git;18.06
-src-git packages https://github.com/Lienol/openwrt-packages.git;main
+src-git packages https://github.com/coolsnowwolf/packages
+src-git luci https://github.com/coolsnowwolf/luci
 src-git routing https://git.openwrt.org/feed/routing.git
 src-git telephony https://git.openwrt.org/feed/telephony.git
-src-git helloworld https://github.com/fw876/helloworld.git
+src-git freifunk https://github.com/freifunk/openwrt-packages.git
+src-git lienol https://github.com/Lienol/openwrt-package
 EOF
 
 ./scripts/feeds update -a
